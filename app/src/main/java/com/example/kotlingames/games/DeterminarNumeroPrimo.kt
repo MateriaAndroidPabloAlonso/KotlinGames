@@ -13,6 +13,7 @@ fun main() {
     println("No se puede ingresar 1 ya que no es considerado un numero primo")
     var numberInput = readlnOrNull()?.toIntOrNull()
     var esValidoInput = numberInput != null && numberInput >= 2
+    var esPrimo = true
     while (!esValidoInput) {
         println("Ingresa un numero valido")
         numberInput = readlnOrNull()?.toIntOrNull()
@@ -27,12 +28,13 @@ fun main() {
             contador++
         }
         if (contador > 2) {
+            esPrimo = false
             break
         }
     }
 
     var mensajeNumeroPrimo = when {
-        contador == 2 -> "El numero $numberInput es primo"
+        esPrimo -> "El numero $numberInput es primo"
         else -> "El numero $numberInput no es primo"
     }
 
